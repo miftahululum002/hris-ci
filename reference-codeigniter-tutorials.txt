@@ -1,0 +1,18 @@
+
+Build a blog with Codeigniter 4 - Step by Step
+https://www.youtube.com/playlist?list=PLX4adOBVJXavmNeP7CU295sX76jgzziio
+
+Cairocoders - CodeIgniter 4 and CodeIgniter 3
+https://www.youtube.com/playlist?list=PL193izPqf5X50qlF96VR6U99h9J5f4nW_
+
+PHPMailer GitHub - 6.8.0
+https://github.com/PHPMailer/PHPMailer/releases/tag/v6.8.0
+
+MAILTRAP Info for PHP Mailer
+https://mailtrap.io/home
+
+Nesbot/Carbon - A simple PHP API extension for DateTime.
+https://carbon.nesbot.com/
+
+CodeIgniter 4 Login & Registration Tutorial
+https://www.youtube.com/playlist?list=PLYogo31AXFBONHR0WjlnhxN4ulRrF98aA
