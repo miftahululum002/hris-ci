@@ -674,7 +674,8 @@ class AdminController extends BaseController
   // End of Employee Page
 
   //Department Page
-  public function department(){
+  public function department()
+  {
     $data = array(
       'pageTitle' => 'Department Page || CI4 HRIS Test'
     );
@@ -732,7 +733,8 @@ class AdminController extends BaseController
   }
 
   // View Department List
-  public function getDepartment(){
+  public function getDepartment()
+  {
 
     //DB Details
     $dbDetails = array(
@@ -793,7 +795,8 @@ class AdminController extends BaseController
   }
 
   // get department id
-  public function getDept(){
+  public function getDept()
+  {
     $request = \Config\Services::request();
 
     if ($request->isAJAX()) {
@@ -801,14 +804,15 @@ class AdminController extends BaseController
       $department = new DepartmentModel();
       $department_data = $department->find($id);
       return $this->response->setJSON(['data' => $department_data]);
-    } 
+    }
   }
 
   // Edit Department
-  public function updateDepartment(){
+  public function updateDepartment()
+  {
     $request = \Config\Services::request();
 
-    if( $request->isAJAX() ){
+    if ($request->isAJAX()) {
       $id = $request->getVar('department_id');
       $validation = \Config\Services::validation();
 
@@ -833,42 +837,41 @@ class AdminController extends BaseController
         ]
       ]);
 
-      if ( $validation->run() === FALSE ) {
+      if ($validation->run() === FALSE) {
         $errors = $validation->getErrors();
-        return $this->response->setJSON(['status'=>0,'token'=>csrf_hash(), 'error'=>$errors]);
+        return $this->response->setJSON(['status' => 0, 'token' => csrf_hash(), 'error' => $errors]);
       } else {
         // return $this->response->setJSON(['status' => 1, 'token' => csrf_hash(), 'msg' => 'I DONT FEAR YOU NIGGA']);
         $department = new DepartmentModel();
-        $update = $department->where('id',$id)
-                             ->set([
-                              'dept_id_no' => $request->getVar(['dept_id_no']),
-                              'dept_code' => $request->getVar(['dept_code']),
-                              'dept_name' => $request->getVar(['dept_name'])        
-                             ])->update();  
-        if ( $update ) {
+        $update = $department->where('id', $id)
+          ->set([
+            'dept_id_no' => $request->getVar(['dept_id_no']),
+            'dept_code' => $request->getVar(['dept_code']),
+            'dept_name' => $request->getVar(['dept_name'])
+          ])->update();
+        if ($update) {
           return $this->response->setJSON(['status' => 1, 'token' => csrf_hash(), 'msg' => 'Department has been updated successfully']);
         } else {
           return $this->response->setJSON(['status' => 0, 'token' => csrf_hash(), 'msg' => 'Something went wrong']);
         }
-        
       }
-      
     }
   }
 
   // Delete Department
-  public function deleteDepartment(){
+  public function deleteDepartment()
+  {
     $request = \Config\Services::request();
 
-    if ( $request->isAJAX() ) {
+    if ($request->isAJAX()) {
       $id = $request->getVar('department_id');
       $department = new DepartmentModel();
-      $delete = $department->where('id',$id)->delete();
-      
-      if ( $delete ) {
-        return $this->response->setJSON(['status'=>1, 'msg'=>'Department has been successfully deleted']);
+      $delete = $department->where('id', $id)->delete();
+
+      if ($delete) {
+        return $this->response->setJSON(['status' => 1, 'msg' => 'Department has been successfully deleted']);
       } else {
-        return $this->response->setJSON(['status'=>0, 'msg'=>'Something went wrong']);
+        return $this->response->setJSON(['status' => 0, 'msg' => 'Something went wrong']);
       }
     }
   }
